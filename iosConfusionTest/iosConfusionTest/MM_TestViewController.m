@@ -7,6 +7,7 @@
 //
 
 #import "MM_TestViewController.h"
+#import "Masonry.h"
 
 @interface MM_TestViewController ()
 
@@ -16,7 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor redColor];
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(200, 200));
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
